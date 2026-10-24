@@ -1,0 +1,2180 @@
+
+/* ==========================================================
+   DILARY & OSCAR
+   INVITACIÓN DIGITAL DE BODA
+   20 DE DICIEMBRE DE 2026 | 3:00 P. M.
+
+   CSS CORREGIDO - PARTE 1 DE 5
+   ========================================================== */
+
+
+/* ==========================================================
+   1. COLORES Y TIPOGRAFÍAS
+   ========================================================== */
+
+:root {
+    --blanco: #ffffff;
+    --marfil: #fffdf9;
+
+    --celeste: #dceefa;
+    --celeste-claro: #f0f8fd;
+    --celeste-medio: #b8d9ed;
+
+    --dorado: #b89a67;
+    --dorado-claro: #ddcba9;
+
+    --azul-marino: #172c4b;
+    --azul-suave: #40546e;
+
+    --texto: #45546a;
+
+    --sombra: 0 12px 35px rgba(23, 44, 75, 0.09);
+
+    --fuente-elegante: "Cormorant Garamond", Georgia, serif;
+    --fuente-cursiva: "Great Vibes", cursive;
+    --fuente-normal: "Montserrat", Arial, sans-serif;
+}
+
+
+/* ==========================================================
+   2. ESTILOS GENERALES
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-normal);
+    background: var(--marfil);
+    color: var(--texto);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background: var(--celeste-medio);
+    color: var(--azul-marino);
+}
+
+
+/* ==========================================================
+   3. ESTILOS COMPARTIDOS
+   ========================================================== */
+
+.seccion {
+    position: relative;
+
+    padding: 90px 24px;
+
+    text-align: center;
+    overflow: hidden;
+}
+
+.subtitulo {
+    margin-bottom: 18px;
+
+    color: var(--dorado);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+    line-height: 1.8;
+    text-transform: uppercase;
+}
+
+.titulo-cursiva {
+    margin-bottom: 26px;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-cursiva);
+    font-size: clamp(49px, 7vw, 78px);
+    font-weight: 400;
+
+    line-height: 1.35;
+}
+
+.texto-elegante {
+    max-width: 650px;
+    margin: 0 auto;
+
+    color: var(--azul-suave);
+
+    font-family: var(--fuente-elegante);
+    font-size: clamp(22px, 3vw, 28px);
+
+    line-height: 1.55;
+}
+
+.detalle-superior {
+    display: block;
+
+    margin-bottom: 22px;
+
+    color: var(--dorado);
+    font-size: 26px;
+}
+
+.adorno-floral {
+    margin-top: 34px;
+
+    color: var(--dorado);
+
+    font-size: 40px;
+    line-height: 1;
+}
+
+
+/* ==========================================================
+   4. PORTADA PRINCIPAL
+   ========================================================== */
+
+.portada {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    padding: 35px 18px;
+
+    background: var(--azul-marino);
+
+    text-align: center;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+
+/* Fotografía original de portada */
+
+.portada-fondo {
+    position: absolute;
+
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(8, 20, 35, 0.18) 0%,
+            rgba(8, 20, 35, 0.27) 40%,
+            rgba(8, 20, 35, 0.72) 100%
+        ),
+        url("../img/portada.jpeg");
+
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+
+    /* Sin zoom ni movimientos automáticos */
+    transform: none;
+    animation: none;
+}
+
+
+/* Marco decorativo */
+
+.portada::after {
+    content: "";
+
+    position: absolute;
+    inset: 15px;
+    z-index: 1;
+
+    border: 1px solid rgba(255, 255, 255, 0.38);
+
+    pointer-events: none;
+}
+
+
+/* Contenido principal */
+
+.portada-contenido {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 900px;
+
+    padding: 40px 18px;
+
+    color: var(--blanco);
+
+    animation: aparecerSuave 1.4s ease both;
+}
+
+.portada-etiqueta {
+    margin-bottom: 22px;
+
+    color: var(--blanco);
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+
+/* Nombres de los novios */
+
+.portada h1 {
+    color: var(--blanco);
+
+    font-family: var(--fuente-cursiva);
+    font-size: clamp(68px, 10vw, 125px);
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.25);
+}
+
+.portada h1 span {
+    color: var(--dorado-claro);
+    font-size: 0.78em;
+}
+
+
+/* Separador decorativo */
+
+.separador {
+    width: 95px;
+    height: 1px;
+
+    margin: 28px auto;
+
+    background: var(--dorado-claro);
+}
+
+
+/* Título Nuestra Boda */
+
+.portada h2 {
+    color: var(--blanco);
+
+    font-family: var(--fuente-elegante);
+    font-size: clamp(32px, 5vw, 47px);
+    font-weight: 400;
+
+    letter-spacing: 2px;
+}
+
+
+/* Fecha y hora */
+
+.portada-fecha {
+    margin-top: 24px;
+
+    color: var(--dorado-claro);
+
+    font-size: 13px;
+    letter-spacing: 5px;
+}
+
+.portada-hora {
+    margin-top: 12px;
+
+    color: var(--blanco);
+
+    font-family: var(--fuente-elegante);
+    font-size: 25px;
+
+    letter-spacing: 2px;
+}
+
+
+/* Botón Descubre nuestra historia */
+
+.boton-abrir {
+    display: inline-flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 45px;
+    padding: 14px 28px;
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 45px;
+
+    color: var(--blanco);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.boton-abrir span {
+    font-size: 24px;
+    line-height: 1;
+
+    animation: flechaBajar 2s ease-in-out infinite;
+}
+
+.boton-abrir:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-3px);
+}
+
+
+/* ==========================================================
+   FIN DE LA PARTE 1 DE 5
+   ========================================================== */
+
+/* ==========================================================
+   DILARY & OSCAR
+
+   CSS CORREGIDO - PARTE 2 DE 5
+   BIENVENIDA, FECHA, CONTADOR Y GALERÍA
+   ========================================================== */
+
+
+/* ==========================================================
+   5. BIENVENIDA
+   ========================================================== */
+
+.bienvenida {
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(220, 238, 250, 0.65),
+            transparent 45%
+        ),
+        var(--blanco);
+}
+
+
+/* Mensaje principal de bienvenida */
+
+.texto-intro {
+    max-width: 700px;
+
+    margin: 0 auto 35px;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-elegante);
+    font-size: clamp(24px, 4vw, 35px);
+
+    line-height: 1.5;
+}
+
+
+/* Texto secundario de bienvenida */
+
+.bienvenida .texto-elegante {
+    max-width: 620px;
+}
+
+
+/* ==========================================================
+   6. FECHA DE LA BODA
+   ========================================================== */
+
+.fecha-section {
+    padding-top: 105px;
+    padding-bottom: 105px;
+
+    background: var(--celeste-claro);
+}
+
+
+/* Detalles decorativos */
+
+.fecha-section::before,
+.fecha-section::after {
+    content: "✦";
+
+    position: absolute;
+
+    color: rgba(184, 154, 103, 0.4);
+    font-size: 30px;
+
+    pointer-events: none;
+}
+
+.fecha-section::before {
+    top: 35px;
+    left: 12%;
+}
+
+.fecha-section::after {
+    right: 12%;
+    bottom: 35px;
+}
+
+
+/* Día de la semana */
+
+.dia-semana {
+    margin-bottom: 10px;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-elegante);
+    font-size: 32px;
+}
+
+
+/* Fecha principal */
+
+.fecha-principal {
+    color: var(--dorado);
+
+    font-family: var(--fuente-elegante);
+    font-size: clamp(55px, 9vw, 110px);
+    font-weight: 400;
+
+    line-height: 1.1;
+    letter-spacing: -2px;
+
+    white-space: nowrap;
+}
+
+
+/* Hora de la ceremonia */
+
+.hora-ceremonia {
+    margin-top: 20px;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-elegante);
+    font-size: 32px;
+}
+
+
+/* Texto Save the Date */
+
+.save-date {
+    margin-top: 20px;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-cursiva);
+    font-size: clamp(58px, 9vw, 90px);
+
+    line-height: 1.3;
+}
+
+
+/* ==========================================================
+   7. CUENTA REGRESIVA
+   ========================================================== */
+
+.cuenta-section {
+    background: var(--blanco);
+}
+
+
+/* Contenedor de días, horas, minutos y segundos */
+
+.contador-boda {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 15px;
+
+    width: 100%;
+    max-width: 700px;
+
+    margin: 45px auto 30px;
+}
+
+
+/* Tarjetas individuales */
+
+.contador-item {
+    min-width: 0;
+
+    padding: 25px 8px;
+
+    background: var(--celeste-claro);
+
+    border: 1px solid rgba(184, 154, 103, 0.28);
+    border-radius: 13px;
+}
+
+
+/* Números del contador */
+
+.contador-item span {
+    display: block;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-elegante);
+    font-size: clamp(30px, 5vw, 57px);
+
+    line-height: 1.2;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* Etiquetas: días, horas, minutos y segundos */
+
+.contador-item small {
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--dorado);
+
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/* Mensaje debajo del contador */
+
+.mensaje-cuenta {
+    color: var(--azul-suave);
+
+    font-family: var(--fuente-elegante);
+    font-size: 24px;
+    font-style: italic;
+}
+
+
+/* ==========================================================
+   8. GALERÍA DE FOTOGRAFÍAS
+   ========================================================== */
+
+.galeria-section {
+    background: var(--celeste-claro);
+}
+
+
+/* Texto introductorio */
+
+.galeria-section .texto-elegante {
+    margin-bottom: 38px;
+}
+
+
+/* Distribución de fotografías */
+
+.galeria-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+}
+
+
+/* Estilos generales de las fotografías */
+
+.galeria-grid img {
+    display: block;
+
+    width: 100%;
+    height: 330px;
+
+    object-fit: cover;
+    object-position: center top;
+
+    border-radius: 13px;
+
+    box-shadow: var(--sombra);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* Tercera fotografía a lo ancho */
+
+.galeria-grid img:nth-child(3) {
+    grid-column: 1 / -1;
+
+    height: 440px;
+}
+
+
+/* ==========================================================
+   CUARTA FOTOGRAFÍA CENTRADA
+   ========================================================== */
+
+/*
+   La cuarta fotografía ocupa todo el ancho
+   de la galería.
+
+   object-position: center center
+   permite centrar el enfoque de la imagen
+   cuando se recorta para llenar el espacio.
+
+   La fotografía original no se modifica.
+*/
+
+.galeria-grid img:nth-child(4) {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    height: 330px;
+
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+/* Efecto suave al pasar el cursor */
+
+.galeria-grid img:hover {
+    transform: scale(1.015);
+
+    box-shadow:
+        0 18px 40px rgba(23, 44, 75, 0.16);
+}
+
+
+/* ==========================================================
+   FIN DE LA PARTE 2 DE 5
+   ========================================================== */
+
+/* ==========================================================
+   DILARY & OSCAR
+
+   CSS CORREGIDO - PARTE 3 DE 5
+   UBICACIÓN, MAPA, BOTONES Y VESTIMENTA
+   ========================================================== */
+
+
+/* ==========================================================
+   9. UBICACIÓN DE LA BODA
+   ========================================================== */
+
+.ubicacion-section {
+    background: var(--blanco);
+}
+
+
+/* Contenedor principal de la ubicación */
+
+.ubicacion-contenido {
+    width: 100%;
+    max-width: 760px;
+
+    margin: 0 auto;
+    padding: 35px 28px;
+
+    background: var(--marfil);
+
+    border: 1px solid var(--dorado-claro);
+    border-radius: 20px;
+}
+
+
+/* Título del lugar */
+
+.ubicacion-contenido h3 {
+    margin-bottom: 14px;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-elegante);
+    font-size: 31px;
+    font-weight: 500;
+}
+
+
+/* Nombre del salón */
+
+#nombreLugar {
+    margin-bottom: 10px;
+
+    color: var(--dorado);
+
+    font-family: var(--fuente-elegante);
+    font-size: 27px;
+
+    line-height: 1.3;
+}
+
+
+/* Dirección del evento */
+
+#direccionLugar {
+    margin-bottom: 15px;
+
+    color: var(--azul-suave);
+
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* Hora de la ceremonia */
+
+.hora-lugar {
+    margin-bottom: 22px;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-elegante);
+    font-size: 24px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================================
+   10. GOOGLE MAPS
+   ========================================================== */
+
+/* Contenedor del mapa */
+
+.mapa-contenedor {
+    width: 100%;
+
+    margin: 18px auto 24px;
+
+    overflow: hidden;
+
+    background: var(--celeste-claro);
+
+    border: 1px solid var(--dorado-claro);
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 25px rgba(23, 44, 75, 0.08);
+}
+
+
+/* Mapa integrado */
+
+.mapa-contenedor iframe {
+    display: block;
+
+    width: 100%;
+    height: 410px;
+
+    border: 0;
+}
+
+
+/* ==========================================================
+   11. BOTONES ELEGANTES
+   ========================================================== */
+
+.boton-elegante {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 48px;
+
+    padding: 14px 33px;
+
+    background: var(--azul-marino);
+
+    border: 1px solid var(--azul-marino);
+    border-radius: 40px;
+
+    color: var(--blanco);
+
+    font-family: var(--fuente-normal);
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 1.2px;
+    line-height: 1.4;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Efecto al pasar el cursor */
+
+.boton-elegante:hover {
+    background: var(--dorado);
+    border-color: var(--dorado);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(184, 154, 103, 0.2);
+}
+
+
+/* Efecto al presionar */
+
+.boton-elegante:active {
+    transform: translateY(0);
+}
+
+
+/* Botones deshabilitados */
+
+.boton-elegante[aria-disabled="true"] {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   12. CÓDIGO DE VESTIMENTA
+   ========================================================== */
+
+.vestimenta-section {
+    background: linear-gradient(
+        135deg,
+        var(--celeste-claro),
+        var(--blanco)
+    );
+}
+
+
+/* Texto introductorio */
+
+.vestimenta-section .texto-elegante {
+    max-width: 680px;
+}
+
+
+/* ==========================================================
+   13. TÍTULO DE COLORES RESERVADOS
+   ========================================================== */
+
+.vestimenta-section h3 {
+    margin: 38px auto 15px;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-elegante);
+    font-size: clamp(26px, 4vw, 35px);
+    font-weight: 500;
+
+    line-height: 1.35;
+}
+
+
+/* ==========================================================
+   14. AVISO: AGRADECEMOS EVITAR
+   ========================================================== */
+
+.aviso-colores {
+    display: block;
+
+    max-width: 600px;
+
+    margin: 12px auto 20px;
+    padding: 0;
+
+    color: var(--azul-marino);
+
+    background: transparent;
+    border: none;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    letter-spacing: 1px;
+    line-height: 1.8;
+
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+/* Palabra EVITAR en rojo y subrayada */
+
+.aviso-colores .palabra-evitar {
+    color: #bd3942;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+    text-decoration-color: #bd3942;
+    text-underline-offset: 3px;
+}
+
+
+/* ==========================================================
+   15. PALETA DE COLORES RESERVADOS
+   ========================================================== */
+
+.paleta-colores {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 22px;
+
+    margin: 28px auto 22px;
+}
+
+
+/* Círculos de colores */
+
+.color-circulo {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 62px;
+    height: 62px;
+
+    border: 3px solid var(--blanco);
+    border-radius: 50%;
+
+    box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================================
+   16. X ROJA PEQUEÑA EN CADA COLOR
+   ========================================================== */
+
+/*
+   La X se coloca en la esquina superior
+   derecha de cada círculo.
+
+   Tiene fondo blanco para mantener
+   buena visibilidad sobre los colores.
+*/
+
+.color-circulo::after {
+    content: "×";
+
+    position: absolute;
+
+    top: -7px;
+    right: -7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 23px;
+    height: 23px;
+
+    background: var(--blanco);
+    color: #bd3942;
+
+    border: 1px solid #e8b5b8;
+    border-radius: 50%;
+
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1;
+
+    text-shadow: none;
+
+    box-shadow:
+        0 2px 7px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ==========================================================
+   17. COLORES INDIVIDUALES
+   ========================================================== */
+
+
+/* Blanco */
+
+.color-circulo.blanco {
+    background: #ffffff;
+    border-color: #dddddd;
+}
+
+
+/* Celeste bebé */
+
+.color-circulo.celeste {
+    background: #b8d9ed;
+}
+
+
+/* Dorado */
+
+.color-circulo.dorado {
+    background: #c5a46a;
+}
+
+
+/* Azul marino */
+
+.color-circulo.azul-marino {
+    background: #172c4b;
+}
+
+
+/* Mantener la X roja sobre el azul marino */
+
+.color-circulo.azul-marino::after {
+    color: #bd3942;
+    text-shadow: none;
+}
+
+
+/* ==========================================================
+   18. NOMBRES Y NOTA DE LOS COLORES
+   ========================================================== */
+
+.texto-colores {
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-elegante);
+    font-size: 24px;
+    font-weight: 400;
+
+    line-height: 1.5;
+}
+
+
+/* Mensaje de agradecimiento */
+
+.nota-vestimenta {
+    max-width: 540px;
+
+    margin: 28px auto 0;
+
+    color: var(--azul-suave);
+
+    font-size: 13px;
+    font-style: italic;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+   FIN DE LA PARTE 3 DE 5
+   ========================================================== */
+
+/* ==========================================================
+   DILARY & OSCAR
+
+   CSS CORREGIDO - PARTE 4 DE 5
+   REGALOS, CONFIRMACIÓN, DESPEDIDA Y MÚSICA
+   ========================================================== */
+
+
+/* ==========================================================
+   19. LLUVIA DE SOBRES
+   ========================================================== */
+
+.regalos-section {
+    background: var(--blanco);
+}
+
+
+/* Ícono decorativo de sobre */
+
+.icono-regalo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 95px;
+    height: 95px;
+
+    margin: 0 auto 25px;
+
+    background: var(--celeste-claro);
+
+    border: 1px solid var(--dorado-claro);
+    border-radius: 50%;
+
+    color: var(--dorado);
+    font-size: 45px;
+}
+
+
+/* Texto de lluvia de sobres */
+
+.regalos-section .texto-elegante {
+    max-width: 560px;
+}
+
+
+/* ==========================================================
+   20. CONFIRMACIÓN DE ASISTENCIA
+   ========================================================== */
+
+.confirmacion-section {
+    background: var(--celeste-claro);
+}
+
+
+/* Mensaje principal */
+
+.confirmacion-section .texto-elegante {
+    max-width: 620px;
+}
+
+
+/* Fecha límite para confirmar */
+
+.fecha-confirmacion {
+    max-width: 580px;
+
+    margin: 25px auto 30px;
+
+    color: var(--azul-marino);
+
+    font-family: var(--fuente-elegante);
+    font-size: clamp(24px, 3vw, 30px);
+
+    line-height: 1.5;
+}
+
+
+/* Destacar fecha límite */
+
+.fecha-confirmacion strong {
+    color: var(--dorado);
+    font-weight: 700;
+}
+
+
+/* Nota debajo del botón de confirmación */
+
+.nota-confirmacion {
+    max-width: 500px;
+
+    margin: 20px auto 0;
+
+    color: var(--azul-suave);
+
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* ==========================================================
+   21. DESPEDIDA
+   ========================================================== */
+
+.despedida-section {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 700px;
+    padding: 0;
+
+    background: var(--azul-marino);
+
+    isolation: isolate;
+}
+
+
+/* Contenedor de fotografía original */
+
+.despedida-imagen {
+    position: absolute;
+
+    inset: 0;
+    z-index: -1;
+
+    overflow: hidden;
+}
+
+
+/* Fotografía de despedida */
+
+.despedida-imagen img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+
+/* Capa oscura para mejorar legibilidad */
+
+.despedida-imagen::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(10, 25, 45, 0.42),
+        rgba(10, 25, 45, 0.85)
+    );
+
+    pointer-events: none;
+}
+
+
+/* Contenido sobre la fotografía */
+
+.despedida-contenido {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 750px;
+
+    padding: 95px 25px;
+
+    color: var(--blanco);
+    text-align: center;
+}
+
+
+/* Texto superior de despedida */
+
+.despedida-contenido > p:first-child {
+    color: var(--dorado-claro);
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 3px;
+    line-height: 1.8;
+}
+
+
+/* Nombres de los novios */
+
+.despedida-contenido h2 {
+    margin: 25px 0;
+
+    color: var(--blanco);
+
+    font-family: var(--fuente-cursiva);
+    font-size: clamp(70px, 10vw, 120px);
+    font-weight: 400;
+
+    line-height: 1.35;
+}
+
+
+/* Fecha de la boda */
+
+.despedida-contenido span {
+    display: block;
+
+    color: var(--dorado-claro);
+
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+
+/* Mensaje final */
+
+.mensaje-final {
+    max-width: 500px;
+
+    margin: 35px auto 0;
+
+    color: var(--blanco);
+
+    font-family: var(--fuente-elegante);
+    font-size: 25px;
+    font-style: italic;
+
+    line-height: 1.6;
+}
+
+
+/* ==========================================================
+   22. PIE DE PÁGINA
+   ========================================================== */
+
+.footer {
+    padding: 25px 15px;
+
+    background: var(--azul-marino);
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+    text-align: center;
+}
+
+
+/* Texto del pie de página */
+
+.footer p {
+    color: var(--dorado-claro);
+
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* ==========================================================
+   23. BOTÓN FLOTANTE DE MÚSICA
+   ========================================================== */
+
+.boton-musica {
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+
+    padding: 0;
+
+    background: var(--azul-marino);
+
+    border: 2px solid var(--dorado-claro);
+    border-radius: 50%;
+
+    color: var(--blanco);
+
+    font-size: 25px;
+    line-height: 1;
+
+    box-shadow:
+        0 6px 22px rgba(0, 0, 0, 0.22);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Efecto al pasar el cursor */
+
+.boton-musica:hover {
+    background: var(--dorado);
+    transform: scale(1.07);
+}
+
+
+/* Apariencia cuando la música está sonando */
+
+.boton-musica.reproduciendo,
+.boton-musica.activa,
+.boton-musica[aria-pressed="true"] {
+    background: var(--dorado);
+}
+
+
+/* ==========================================================
+   24. ACCESIBILIDAD DE LOS BOTONES
+   ========================================================== */
+
+/* Indicador visible al navegar con teclado */
+
+.boton-musica:focus-visible,
+.boton-elegante:focus-visible,
+.boton-abrir:focus-visible {
+    outline: 3px solid var(--celeste-medio);
+    outline-offset: 4px;
+}
+
+
+/* ==========================================================
+   25. ANIMACIONES SUAVES
+   ========================================================== */
+
+
+/* Aparición del contenido de portada */
+
+@keyframes aparecerSuave {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Movimiento delicado de la flecha */
+
+@keyframes flechaBajar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+
+}
+
+
+/* ==========================================================
+   FIN DE LA PARTE 4 DE 5
+   ========================================================== */
+
+/* ==========================================================
+   DILARY & OSCAR
+
+   CSS CORREGIDO - PARTE 5 DE 5
+   DISEÑO RESPONSIVE Y ACCESIBILIDAD
+   ========================================================== */
+
+
+/* ==========================================================
+   26. COMPUTADORAS GRANDES
+   ========================================================== */
+
+@media (min-width: 1200px) {
+
+    /* Espaciado general */
+
+    .seccion {
+        padding: 110px 45px;
+    }
+
+    /* Fotografía de portada */
+
+    .portada-fondo {
+        background-position: center 30%;
+    }
+
+    /* Galería */
+
+    .galeria-grid {
+        gap: 20px;
+    }
+
+    .galeria-grid img {
+        height: 370px;
+    }
+
+    /* Tercera fotografía */
+
+    .galeria-grid img:nth-child(3) {
+        height: 480px;
+    }
+
+    /* Cuarta fotografía centrada */
+
+    .galeria-grid img:nth-child(4) {
+        grid-column: 1 / -1;
+
+        height: 420px;
+
+        object-position: center center;
+    }
+
+}
+
+
+/* ==========================================================
+   27. TABLETAS
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    /* Portada */
+
+    .portada-fondo {
+        background-position: center 20%;
+    }
+
+    .portada h1 {
+        font-size: clamp(65px, 11vw, 95px);
+    }
+
+    /* Galería */
+
+    .galeria-grid img {
+        height: 280px;
+    }
+
+    .galeria-grid img:nth-child(3) {
+        height: 380px;
+    }
+
+    /* Cuarta fotografía centrada */
+
+    .galeria-grid img:nth-child(4) {
+        grid-column: 1 / -1;
+
+        height: 320px;
+
+        object-position: center center;
+    }
+
+    /* Mapa */
+
+    .mapa-contenedor iframe {
+        height: 350px;
+    }
+
+}
+
+
+/* ==========================================================
+   28. CELULARES
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    /* ------------------------------------------
+       ESTILOS GENERALES
+       ------------------------------------------ */
+
+    .seccion {
+        padding: 75px 20px;
+    }
+
+    .subtitulo {
+        font-size: 10px;
+        letter-spacing: 2.2px;
+    }
+
+    .titulo-cursiva {
+        font-size: clamp(48px, 11vw, 65px);
+    }
+
+    .texto-elegante {
+        font-size: 23px;
+    }
+
+
+    /* ------------------------------------------
+       PORTADA PRINCIPAL
+       ------------------------------------------ */
+
+    .portada {
+        min-height: 100vh;
+        min-height: 100svh;
+
+        padding: 30px 14px;
+    }
+
+    .portada-fondo {
+        background-position: center 15%;
+    }
+
+    .portada::after {
+        inset: 10px;
+    }
+
+    .portada-contenido {
+        padding: 30px 12px;
+    }
+
+    .portada-etiqueta {
+        margin-bottom: 18px;
+
+        font-size: 9px;
+        letter-spacing: 3.5px;
+    }
+
+    .portada h1 {
+        font-size: clamp(52px, 12.5vw, 75px);
+        line-height: 1.25;
+    }
+
+    .separador {
+        margin: 20px auto;
+    }
+
+    .portada h2 {
+        font-size: 34px;
+    }
+
+    .portada-fecha {
+        margin-top: 18px;
+
+        font-size: 11px;
+        letter-spacing: 4px;
+    }
+
+    .portada-hora {
+        font-size: 23px;
+    }
+
+    .boton-abrir {
+        margin-top: 32px;
+        padding: 12px 22px;
+
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+
+    /* ------------------------------------------
+       BIENVENIDA
+       ------------------------------------------ */
+
+    .texto-intro {
+        font-size: 26px;
+    }
+
+
+    /* ------------------------------------------
+       FECHA DE LA BODA
+       ------------------------------------------ */
+
+    .fecha-section {
+        padding-top: 85px;
+        padding-bottom: 85px;
+    }
+
+    .dia-semana {
+        font-size: 29px;
+    }
+
+    .fecha-principal {
+        font-size: clamp(44px, 11.5vw, 68px);
+        letter-spacing: -1px;
+    }
+
+    .save-date {
+        font-size: clamp(54px, 12vw, 72px);
+    }
+
+    .hora-ceremonia {
+        font-size: 28px;
+    }
+
+
+    /* ------------------------------------------
+       CUENTA REGRESIVA
+       ------------------------------------------ */
+
+    .contador-boda {
+        gap: 8px;
+        margin-top: 35px;
+    }
+
+    .contador-item {
+        padding: 18px 3px;
+        border-radius: 10px;
+    }
+
+    .contador-item span {
+        font-size: clamp(26px, 7vw, 39px);
+    }
+
+    .contador-item small {
+        font-size: 8px;
+        letter-spacing: 0;
+    }
+
+    .mensaje-cuenta {
+        font-size: 22px;
+    }
+
+
+    /* ------------------------------------------
+       GALERÍA DE FOTOGRAFÍAS
+       ------------------------------------------ */
+
+    .galeria-grid {
+        gap: 10px;
+    }
+
+    .galeria-grid img {
+        height: 195px;
+
+        border-radius: 10px;
+
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    /* Tercera fotografía a lo ancho */
+
+    .galeria-grid img:nth-child(3) {
+        grid-column: 1 / -1;
+
+        height: 280px;
+    }
+
+    /*
+       CUARTA FOTOGRAFÍA
+
+       Se mantiene centrada y ocupa
+       todo el ancho de la galería.
+    */
+
+    .galeria-grid img:nth-child(4) {
+        grid-column: 1 / -1;
+
+        width: 100%;
+        height: 260px;
+
+        object-fit: cover;
+        object-position: center center;
+    }
+
+
+    /* ------------------------------------------
+       UBICACIÓN Y GOOGLE MAPS
+       ------------------------------------------ */
+
+    .ubicacion-contenido {
+        padding: 26px 15px;
+        border-radius: 16px;
+    }
+
+    .ubicacion-contenido h3 {
+        font-size: 27px;
+    }
+
+    #nombreLugar {
+        font-size: 25px;
+    }
+
+    .mapa-contenedor {
+        margin: 15px auto 22px;
+        border-radius: 12px;
+    }
+
+    .mapa-contenedor iframe {
+        height: 350px;
+    }
+
+
+    /* ------------------------------------------
+       CÓDIGO DE VESTIMENTA
+       ------------------------------------------ */
+
+    .vestimenta-section h3 {
+        font-size: 29px;
+    }
+
+    .aviso-colores {
+        font-size: 11px;
+        letter-spacing: 0.6px;
+        line-height: 1.8;
+    }
+
+    /* Palabra EVITAR en rojo y subrayada */
+
+    .aviso-colores .palabra-evitar {
+        color: #bd3942;
+
+        font-weight: 700;
+
+        text-decoration: underline;
+        text-decoration-color: #bd3942;
+        text-underline-offset: 3px;
+    }
+
+    /* Distribución de colores */
+
+    .paleta-colores {
+        gap: 18px;
+    }
+
+    .color-circulo {
+        width: 56px;
+        height: 56px;
+    }
+
+    /*
+       X ROJAS PEQUEÑAS
+
+       Se mantienen en la esquina
+       superior derecha de cada círculo.
+    */
+
+    .color-circulo::after {
+        top: -6px;
+        right: -6px;
+
+        width: 21px;
+        height: 21px;
+
+        background: #ffffff;
+        color: #bd3942;
+
+        border-color: #e8b5b8;
+
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    .color-circulo.azul-marino::after {
+        color: #bd3942;
+    }
+
+    .texto-colores {
+        font-size: 22px;
+    }
+
+    .nota-vestimenta {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+
+    /* ------------------------------------------
+       CONFIRMACIÓN DE ASISTENCIA
+       ------------------------------------------ */
+
+    .fecha-confirmacion {
+        font-size: 25px;
+    }
+
+    .confirmacion-section .boton-elegante {
+        max-width: 100%;
+        padding: 15px 25px;
+    }
+
+
+    /* ------------------------------------------
+       DESPEDIDA
+       ------------------------------------------ */
+
+    .despedida-section {
+        min-height: 650px;
+        padding: 0;
+    }
+
+    .despedida-imagen img {
+        object-position: center 20%;
+    }
+
+    .despedida-contenido {
+        padding: 85px 22px;
+    }
+
+    .despedida-contenido h2 {
+        font-size: clamp(58px, 13vw, 83px);
+    }
+
+    .mensaje-final {
+        font-size: 23px;
+    }
+
+
+    /* ------------------------------------------
+       BOTÓN FLOTANTE DE MÚSICA
+       ------------------------------------------ */
+
+    .boton-musica {
+        right: 15px;
+        bottom: 15px;
+
+        width: 52px;
+        height: 52px;
+
+        font-size: 23px;
+    }
+
+}
+
+
+/* ==========================================================
+   29. CELULARES MUY PEQUEÑOS
+   ========================================================== */
+
+@media (max-width: 380px) {
+
+    /* Espaciado general */
+
+    .seccion {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    /* Portada */
+
+    .portada h1 {
+        font-size: 49px;
+    }
+
+    .portada-contenido {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    /* Fecha */
+
+    .fecha-principal {
+        font-size: 42px;
+    }
+
+    /* Cuenta regresiva */
+
+    .contador-boda {
+        gap: 5px;
+    }
+
+    .contador-item span {
+        font-size: 25px;
+    }
+
+    .contador-item small {
+        font-size: 7px;
+    }
+
+    /* Galería */
+
+    .galeria-grid img {
+        height: 165px;
+    }
+
+    .galeria-grid img:nth-child(3) {
+        height: 240px;
+    }
+
+    .galeria-grid img:nth-child(4) {
+        grid-column: 1 / -1;
+
+        height: 220px;
+
+        object-position: center center;
+    }
+
+    /* Colores reservados */
+
+    .color-circulo {
+        width: 49px;
+        height: 49px;
+    }
+
+    .paleta-colores {
+        gap: 14px;
+    }
+
+    /* X rojas más pequeñas */
+
+    .color-circulo::after {
+        top: -5px;
+        right: -5px;
+
+        width: 19px;
+        height: 19px;
+
+        font-size: 16px;
+    }
+
+    /* Google Maps */
+
+    .mapa-contenedor iframe {
+        height: 310px;
+    }
+
+}
+
+
+/* ==========================================================
+   30. CELULARES EN POSICIÓN HORIZONTAL
+   ========================================================== */
+
+@media (max-height: 550px) and (orientation: landscape) {
+
+    .portada {
+        min-height: 650px;
+    }
+
+    .portada-contenido {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .portada h1 {
+        font-size: clamp(55px, 8vw, 90px);
+    }
+
+    .boton-abrir {
+        margin-top: 22px;
+    }
+
+}
+
+
+/* ==========================================================
+   31. ACCESIBILIDAD
+   ========================================================== */
+
+/*
+   Respetamos la configuración del usuario
+   cuando solicita reducir las animaciones
+   del dispositivo.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+
+}
+
+
+/* ==========================================================
+   FIN DEL ARCHIVO CSS
+
+   DILARY & OSCAR
+   20 DE DICIEMBRE DE 2026
+   ========================================================== */
+
+
+/* ==========================================
+   COLORES PROHIBIDOS - X ROJA GRANDE
+   ========================================== */
+
+
+
+/* ==========================================
+   X DE PROHIBICIÓN - DISEÑO DEFINITIVO
+   ========================================== */
+
+.color-circulo {
+    position: relative;
+}
+
+/* Eliminar el estilo antiguo de la X */
+
+.color-circulo::before,
+.color-circulo::after {
+    content: "";
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+
+    display: block;
+
+    width: 72%;
+    height: 3px;
+    padding: 0;
+
+    background: #e32636;
+    border: none;
+    border-radius: 4px;
+
+    box-shadow: none;
+    text-shadow: none;
+
+    font-size: 0;
+    line-height: 0;
+
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Primera diagonal */
+
+.color-circulo::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Segunda diagonal */
+
+.color-circulo::after,
+.color-circulo.azul-marino::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Tamaño en celulares */
+
+@media (max-width: 600px) {
+    .color-circulo::before,
+    .color-circulo::after {
+        width: 72%;
+        height: 2.5px;
+    }
+}
+
+
+

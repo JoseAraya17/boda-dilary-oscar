@@ -3,11 +3,6 @@
 <html lang="es">
 
 <head>
-
-    <!-- ==========================================
-         CONFIGURACIÓN GENERAL
-    ========================================== -->
-
     <meta charset="UTF-8">
 
     <meta
@@ -15,10 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <meta
-        name="theme-color"
-        content="#dceefa"
-    >
+    <meta name="theme-color" content="#dceefa">
 
     <meta
         name="description"
@@ -27,23 +19,14 @@
 
     <title>Dilary &amp; Oscar | Nuestra Boda</title>
 
-
-    <!-- ==========================================
-         ÍCONO DE LA PESTAÑA
-         CORRECCIÓN DEL ERROR FAVICON 404
-    ========================================== -->
-
+    <!-- Ícono de la pestaña -->
     <link
         rel="icon"
         type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext x='50%25' y='52' font-size='52' text-anchor='middle'%3E%26%23x2764%3B%3C/text%3E%3C/svg%3E"
     >
 
-
-    <!-- ==========================================
-         TIPOGRAFÍAS
-    ========================================== -->
-
+    <!-- Tipografías -->
     <link
         rel="preconnect"
         href="https://fonts.googleapis.com"
@@ -60,18 +43,9 @@
         rel="stylesheet"
     >
 
-
-    <!-- ==========================================
-         ARCHIVO CSS
-    ========================================== -->
-
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 
 <body>
 
@@ -79,20 +53,12 @@
          1. PORTADA PRINCIPAL
     ========================================== -->
 
-    <header
-        class="portada"
-        id="inicio"
-    >
-
-        <!-- FOTOGRAFÍA DE FONDO -->
+    <header class="portada" id="inicio">
 
         <div
             class="portada-fondo"
             aria-hidden="true"
         ></div>
-
-
-        <!-- CONTENIDO DE LA PORTADA -->
 
         <div class="portada-contenido">
 
@@ -109,9 +75,7 @@
                 aria-hidden="true"
             ></div>
 
-            <h2>
-                Nuestra Boda
-            </h2>
+            <h2>Nuestra Boda</h2>
 
             <p class="portada-fecha">
                 20 · 12 · 2026
@@ -121,34 +85,23 @@
                 3:00 p. m.
             </p>
 
-
-            <!-- BOTÓN PARA ABRIR LA INVITACIÓN -->
-
             <a
                 href="#bienvenida"
                 class="boton-abrir"
                 id="abrirInvitacion"
             >
-
                 Descubre nuestra historia
 
                 <span aria-hidden="true">
                     ↓
                 </span>
-
             </a>
 
         </div>
 
     </header>
 
-
-    <!-- ==========================================
-         CONTENIDO PRINCIPAL
-    ========================================== -->
-
     <main>
-
 
         <!-- ==========================================
              2. BIENVENIDA
@@ -166,15 +119,9 @@
                 ✦
             </span>
 
-
-            <!-- TÍTULO -->
-
             <h2 class="titulo-cursiva">
                 ¡Nos casamos!
             </h2>
-
-
-            <!-- MENSAJE DE BIENVENIDA -->
 
             <p class="texto-intro">
                 Estamos muy felices de compartir
@@ -205,9 +152,6 @@
                 de nuestra historia!
             </p>
 
-
-            <!-- ADORNO DECORATIVO -->
-
             <div
                 class="adorno-floral"
                 aria-hidden="true"
@@ -217,377 +161,476 @@
 
         </section>
 
+        <!-- ==========================================
+             3. FECHA DE LA BODA
+        ========================================== -->
 
-    <!-- FIN DE LA PARTE 1 -->
-
-    <!-- ==========================================
-         6. UBICACIÓN DE LA BODA
-    ========================================== -->
-
-    <section
-        class="seccion ubicacion-section"
-        id="ubicacion"
-    >
-
-        <span
-            class="detalle-superior"
-            aria-hidden="true"
+        <section
+            class="seccion fecha-section"
+            id="fecha"
         >
-            ✦
-        </span>
 
-        <p class="subtitulo">
-            EL LUGAR DE NUESTRO ENCUENTRO
-        </p>
-
-        <h2 class="titulo-cursiva">
-            Ubicación
-        </h2>
-
-
-        <!-- INFORMACIÓN DEL LUGAR -->
-
-        <div class="ubicacion-contenido">
-
-            <h3>
-                Celebración de nuestra boda
-            </h3>
-
-            <p id="nombreLugar">
-                Salón de Eventos Mirador Las Palmeras
+            <p class="subtitulo">
+                UN DÍA MUY ESPECIAL
             </p>
 
-            <p id="direccionLugar">
-                San Pedro de Sarchí,
-                Alajuela, Costa Rica.
+            <h2 class="titulo-cursiva">
+                Nuestra fecha
+            </h2>
+
+            <p class="dia-semana">
+                Domingo
             </p>
 
-            <p class="hora-lugar">
-                Domingo 20 de diciembre de 2026
-                <br>
+            <p class="fecha-principal">
+                20 · 12 · 2026
+            </p>
+
+            <p class="hora-ceremonia">
                 3:00 p. m.
             </p>
 
+            <p class="save-date">
+                Save the Date
+            </p>
 
-            <!-- MAPA INTEGRADO -->
+        </section>
 
-            <div class="mapa-contenedor">
+        <!-- ==========================================
+             4. CUENTA REGRESIVA
+        ========================================== -->
 
-                <iframe
-                    title="Mapa del Salón de Eventos Mirador Las Palmeras"
-                    src="https://www.google.com/maps?q=Finca%20Mirador%20Las%20Palmeras%2C%20San%20Pedro%20de%20Sarch%C3%AD%2C%20Costa%20Rica&output=embed"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    allowfullscreen
-                ></iframe>
+        <section
+            class="seccion cuenta-section"
+            id="cuenta-regresiva"
+        >
+
+            <span
+                class="detalle-superior"
+                aria-hidden="true"
+            >
+                ✦
+            </span>
+
+            <p class="subtitulo">
+                CADA DÍA MÁS CERCA
+            </p>
+
+            <h2 class="titulo-cursiva">
+                Falta muy poquito
+            </h2>
+
+            <p class="texto-elegante">
+                Contamos los días para compartir
+                este momento tan especial
+                con ustedes.
+            </p>
+
+            <div
+                class="contador-boda"
+                role="timer"
+                aria-label="Cuenta regresiva para nuestra boda"
+            >
+
+                <div class="contador-item">
+                    <span id="dias">00</span>
+                    <small>Días</small>
+                </div>
+
+                <div class="contador-item">
+                    <span id="horas">00</span>
+                    <small>Horas</small>
+                </div>
+
+                <div class="contador-item">
+                    <span id="minutos">00</span>
+                    <small>Minutos</small>
+                </div>
+
+                <div class="contador-item">
+                    <span id="segundos">00</span>
+                    <small>Segundos</small>
+                </div>
 
             </div>
 
-
-            <!-- ENLACE DIRECTO A GOOGLE MAPS -->
-
-            <a
-                id="btnMapa"
-                class="boton-elegante"
-                href="https://maps.app.goo.gl/SVUCgr75beKC84bd7"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Abrir la ubicación de Mirador Las Palmeras en Google Maps"
+            <p
+                class="mensaje-cuenta"
+                id="mensajeCuenta"
             >
-                Cómo llegar
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- ==========================================
-         7. CÓDIGO DE VESTIMENTA
-    ========================================== -->
-
-    <section
-        class="seccion vestimenta-section"
-        id="vestimenta"
-    >
-
-        <p class="subtitulo">
-            PARA ESTE DÍA TAN ESPECIAL
-        </p>
-
-        <h2 class="titulo-cursiva">
-            Código de vestimenta
-        </h2>
-
-
-        <!-- MENSAJE PRINCIPAL -->
-
-        <p class="texto-elegante">
-            Queremos que disfruten este día
-            tan especial con nosotros.
-            Pueden vestir como se sientan cómodos,
-            únicamente les pedimos evitar
-            algunos colores que hemos reservado
-            para nuestra celebración.
-        </p>
-
-
-        <!-- COLORES RESERVADOS -->
-
-        <h3>
-            Colores reservados
-        </h3>
-
-        <p class="aviso-colores">
-            Agradecemos
-            <span class="palabra-evitar">EVITAR</span>
-            los siguientes colores
-        </p>
-
-
-        <!-- PALETA DE COLORES -->
-
-        <div
-            class="paleta-colores"
-            role="img"
-            aria-label="Evitar utilizar blanco, celeste bebé, dorado y azul marino"
-        >
-
-            <!-- BLANCO -->
-
-            <div
-                class="color-circulo blanco"
-                aria-hidden="true"
-                title="Evitar blanco"
-            ></div>
-
-
-            <!-- CELESTE BEBÉ -->
-
-            <div
-                class="color-circulo celeste"
-                aria-hidden="true"
-                title="Evitar celeste bebé"
-            ></div>
-
-
-            <!-- DORADO -->
-
-            <div
-                class="color-circulo dorado"
-                aria-hidden="true"
-                title="Evitar dorado"
-            ></div>
-
-
-            <!-- AZUL MARINO -->
-
-            <div
-                class="color-circulo azul-marino"
-                aria-hidden="true"
-                title="Evitar azul marino"
-            ></div>
-
-        </div>
-
-
-        <!-- NOMBRES DE LOS COLORES -->
-
-        <p class="texto-colores">
-            Blanco · Celeste bebé · Dorado · Azul marino
-        </p>
-
-
-        <!-- MENSAJE FINAL -->
-
-        <p class="nota-vestimenta">
-            Agradecemos mucho su comprensión y cariño.
-        </p>
-
-    </section>
-
-
-    <!-- FIN DE LA PARTE 3 -->
-
-    <!-- ==========================================
-         8. LLUVIA DE SOBRES
-    ========================================== -->
-
-    <section
-        class="seccion regalos-section"
-        id="regalos"
-    >
-
-        <!-- ÍCONO DECORATIVO -->
-
-        <div
-            class="icono-regalo"
-            aria-hidden="true"
-        >
-            ✉
-        </div>
-
-
-        <!-- TÍTULO -->
-
-        <h2 class="titulo-cursiva">
-            Lluvia de sobres
-        </h2>
-
-
-        <!-- MENSAJE PRINCIPAL -->
-
-        <p class="texto-elegante">
-            Su presencia es el regalo más importante
-            para nosotros.
-        </p>
-
-
-        <!-- MENSAJE ADICIONAL -->
-
-        <p
-            class="texto-elegante"
-            style="margin-top: 20px;"
-        >
-            Si desean tener un detalle adicional,
-            agradeceremos de corazón su cariño
-            a través de una lluvia de sobres.
-        </p>
-
-    </section>
-
-
-    <!-- ==========================================
-         9. CONFIRMACIÓN DE ASISTENCIA
-    ========================================== -->
-
-    <section
-        class="seccion confirmacion-section"
-        id="confirmacion"
-    >
-
-        <!-- DETALLE DECORATIVO -->
-
-        <span
-            class="detalle-superior"
-            aria-hidden="true"
-        >
-            ✦
-        </span>
-
-
-        <!-- ENCABEZADO -->
-
-        <p class="subtitulo">
-            QUEREMOS CELEBRAR CONTIGO
-        </p>
-
-        <h2 class="titulo-cursiva">
-            Confirma tu asistencia
-        </h2>
-
-
-        <!-- MENSAJE DE INVITACIÓN -->
-
-        <p class="texto-elegante">
-            Tu presencia hará que este día
-            sea todavía más especial para nosotros.
-        </p>
-
-
-        <!-- FECHA LÍMITE DE CONFIRMACIÓN -->
-
-        <p class="fecha-confirmacion">
-            Por favor, confirma tu asistencia
-            antes del
-            <strong>25 de noviembre de 2026.</strong>
-        </p>
-
-
-        <!-- BOTÓN DE CONFIRMACIÓN -->
-
-        <a
-            id="btnConfirmacion"
-            class="boton-elegante"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdUgfq4JATa0wRPRPJadDxbQmKfGdnDg2V_ocZ9LSWfss8zvQ/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Abrir formulario para confirmar asistencia a la boda de Dilary y Oscar"
-        >
-            Confirmar asistencia
-        </a>
-
-
-        <!-- NOTA INFORMATIVA -->
-
-        <p class="nota-confirmacion">
-            Al seleccionar el botón, se abrirá
-            nuestro formulario de confirmación.
-            ¡Gracias por responder!
-        </p>
-
-    </section>
-
-
-    <!-- FIN DE LA PARTE 4 -->
-
-    <!-- ==========================================
-         10. DESPEDIDA
-    ========================================== -->
-
-    <section
-        class="seccion despedida-section"
-        id="despedida"
-    >
-
-        <!-- FOTOGRAFÍA ORIGINAL DE FONDO -->
-
-        <div
-            class="despedida-imagen"
-            aria-hidden="true"
-        >
-
-            <img
-                src="img/portada.jpeg"
-                alt=""
-                loading="lazy"
-                decoding="async"
-            >
-
-        </div>
-
-
-        <!-- CONTENIDO DE DESPEDIDA -->
-
-        <div class="despedida-contenido">
-
-            <p>
-                GRACIAS POR SER PARTE
-                DE NUESTRA HISTORIA
+                ¡Cada segundo nos acerca
+                a nuestro gran día!
             </p>
 
-            <h2>
-                Dilary &amp; Oscar
-            </h2>
+        </section>
 
-            <span>
-                20 · DICIEMBRE · 2026
+        <!-- ==========================================
+             5. GALERÍA DE FOTOGRAFÍAS
+        ========================================== -->
+
+        <section
+            class="seccion galeria-section"
+            id="galeria"
+        >
+
+            <span
+                class="detalle-superior"
+                aria-hidden="true"
+            >
+                ✦
             </span>
 
-            <p class="mensaje-final">
-                El amor es más bonito
-                cuando se comparte
-                con las personas que queremos.
+            <p class="subtitulo">
+                UN POQUITO DE NOSOTROS
             </p>
 
-        </div>
+            <h2 class="titulo-cursiva">
+                Nuestra historia
+            </h2>
 
-    </section>
+            <p class="texto-elegante">
+                Algunos recuerdos de nuestro amor
+                y de los momentos que nos han
+                traído hasta aquí.
+            </p>
+
+            <div class="galeria-grid">
+
+                <img
+                    src="img/foto1.jpeg"
+                    alt="Recuerdo especial de Dilary y Oscar"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <img
+                    src="img/foto2.jpeg"
+                    alt="Un momento especial de nuestra historia"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <img
+                    src="img/foto3.jpeg"
+                    alt="Recuerdo de nuestra historia juntos"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <img
+                    src="img/foto4.jpeg"
+                    alt="Otro recuerdo especial de Dilary y Oscar"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+        </section>
+
+        <!-- FIN DE LA PARTE 1 DE 3 -->
+
+        <!-- ==========================================
+             6. UBICACIÓN DE LA BODA
+        ========================================== -->
+
+        <section
+            class="seccion ubicacion-section"
+            id="ubicacion"
+        >
+
+            <span
+                class="detalle-superior"
+                aria-hidden="true"
+            >
+                ✦
+            </span>
+
+            <p class="subtitulo">
+                EL LUGAR DE NUESTRO ENCUENTRO
+            </p>
+
+            <h2 class="titulo-cursiva">
+                Ubicación
+            </h2>
+
+            <div class="ubicacion-contenido">
+
+                <h3>
+                    Celebración de nuestra boda
+                </h3>
+
+                <p id="nombreLugar">
+                    Salón de Eventos Mirador Las Palmeras
+                </p>
+
+                <p id="direccionLugar">
+                    San Pedro de Sarchí,
+                    Alajuela, Costa Rica.
+                </p>
+
+                <p class="hora-lugar">
+                    Domingo 20 de diciembre de 2026
+                    <br>
+                    3:00 p. m.
+                </p>
+
+                <!-- Botón directo a Google Maps -->
+
+                <a
+                    id="btnMapa"
+                    class="boton-elegante"
+                    href="https://maps.app.goo.gl/SVUCgr75beKC84bd7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Cómo llegar a Finca Mirador Las Palmeras en Google Maps"
+                >
+                    Cómo llegar
+                </a>
+
+            </div>
+
+        </section>
 
 
-    <!-- ==========================================
-         FIN DEL CONTENIDO PRINCIPAL
-    ========================================== -->
+        <!-- ==========================================
+             7. CÓDIGO DE VESTIMENTA
+        ========================================== -->
+
+        <section
+            class="seccion vestimenta-section"
+            id="vestimenta"
+        >
+
+            <p class="subtitulo">
+                PARA ESTE DÍA TAN ESPECIAL
+            </p>
+
+            <h2 class="titulo-cursiva">
+                Código de vestimenta
+            </h2>
+
+            <p class="texto-elegante">
+                Queremos que disfruten este día
+                tan especial con nosotros.
+                Pueden vestir como se sientan cómodos,
+                únicamente les pedimos evitar
+                algunos colores que hemos reservado
+                para nuestra celebración.
+            </p>
+
+            <h3>
+                Colores reservados
+            </h3>
+
+            <p class="aviso-colores">
+                Agradecemos
+                <span class="palabra-evitar">EVITAR</span>
+                los siguientes colores
+            </p>
+
+            <!-- Círculos con X de prohibición -->
+
+            <div
+                class="paleta-colores"
+                role="img"
+                aria-label="Evitar utilizar blanco, celeste bebé, dorado y azul marino"
+            >
+
+                <div
+                    class="color-circulo blanco"
+                    aria-hidden="true"
+                    title="Evitar blanco"
+                ></div>
+
+                <div
+                    class="color-circulo celeste"
+                    aria-hidden="true"
+                    title="Evitar celeste bebé"
+                ></div>
+
+                <div
+                    class="color-circulo dorado"
+                    aria-hidden="true"
+                    title="Evitar dorado"
+                ></div>
+
+                <div
+                    class="color-circulo azul-marino"
+                    aria-hidden="true"
+                    title="Evitar azul marino"
+                ></div>
+
+            </div>
+
+            <p class="texto-colores">
+                Blanco · Celeste bebé · Dorado · Azul marino
+            </p>
+
+            <p class="nota-vestimenta">
+                Agradecemos mucho su comprensión y cariño.
+            </p>
+
+        </section>
+
+
+        <!-- ==========================================
+             8. LLUVIA DE SOBRES
+        ========================================== -->
+
+        <section
+            class="seccion regalos-section"
+            id="regalos"
+        >
+
+            <div
+                class="icono-regalo"
+                aria-hidden="true"
+            >
+                ✉
+            </div>
+
+            <h2 class="titulo-cursiva">
+                Lluvia de sobres
+            </h2>
+
+            <p class="texto-elegante">
+                El mejor regalo para nosotros
+                es contar con su presencia
+                en este día tan especial.
+            </p>
+
+            <p
+                class="texto-elegante"
+                style="margin-top: 20px;"
+            >
+                Si desean tener un detalle con nosotros,
+                hemos elegido la modalidad de lluvia de sobres,
+                que consiste en obsequiar un aporte en efectivo
+                dentro de un sobre.
+            </p>
+
+            <p
+                class="texto-elegante"
+                style="margin-top: 20px;"
+            >
+                Cualquier detalle será recibido
+                con mucho cariño y agradecimiento.
+            </p>
+
+        </section>
+
+
+        <!-- FIN DE LA PARTE 2 DE 3 -->
+
+        <!-- ==========================================
+             9. CONFIRMACIÓN DE ASISTENCIA
+        ========================================== -->
+
+        <section
+            class="seccion confirmacion-section"
+            id="confirmacion"
+        >
+
+            <span
+                class="detalle-superior"
+                aria-hidden="true"
+            >
+                ✦
+            </span>
+
+            <p class="subtitulo">
+                QUEREMOS CELEBRAR CONTIGO
+            </p>
+
+            <h2 class="titulo-cursiva">
+                Confirma tu asistencia
+            </h2>
+
+            <p class="texto-elegante">
+                Tu presencia hará que este día
+                sea todavía más especial para nosotros.
+            </p>
+
+            <p class="fecha-confirmacion">
+                Por favor, confirma tu asistencia
+                antes del
+                <strong>25 de noviembre de 2026.</strong>
+            </p>
+
+            <!-- Botón de confirmación -->
+
+            <a
+                id="btnConfirmacion"
+                class="boton-elegante"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdUgfq4JATa0wRPRPJadDxbQmKfGdnDg2V_ocZ9LSWfss8zvQ/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir formulario para confirmar asistencia a la boda de Dilary y Oscar"
+            >
+                Confirmar asistencia
+            </a>
+
+            <p class="nota-confirmacion">
+                Al seleccionar el botón, se abrirá
+                nuestro formulario de confirmación.
+                ¡Gracias por responder!
+            </p>
+
+        </section>
+
+
+        <!-- ==========================================
+             10. DESPEDIDA
+        ========================================== -->
+
+        <section
+            class="seccion despedida-section"
+            id="despedida"
+        >
+
+            <!-- Fotografía de fondo -->
+
+            <div
+                class="despedida-imagen"
+                aria-hidden="true"
+            >
+
+                <img
+                    src="img/portada.jpeg"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                >
+
+            </div>
+
+            <!-- Mensaje de despedida -->
+
+            <div class="despedida-contenido">
+
+                <p>
+                    GRACIAS POR SER PARTE
+                    DE NUESTRA HISTORIA
+                </p>
+
+                <h2>
+                    Dilary &amp; Oscar
+                </h2>
+
+                <span>
+                    20 · DICIEMBRE · 2026
+                </span>
+
+                <p class="mensaje-final">
+                    El amor es más bonito
+                    cuando se comparte
+                    con las personas que queremos.
+                </p>
+
+            </div>
+
+        </section>
 
     </main>
 
@@ -597,11 +640,7 @@
     ========================================== -->
 
     <!--
-        CANCIÓN:
-        Carlos Rivera - Otras Vidas.mp3
-
-        La reproducción comienza cuando
-        el visitante presiona el botón
+        La reproducción se inicia al presionar
         "Descubre nuestra historia".
 
         El JavaScript controla:
@@ -662,13 +701,10 @@
 
     <script src="js/script.js"></script>
 
-
-    <!-- ==========================================
-         FIN DE LA INVITACIÓN
-         DILARY & OSCAR
-         20 DE DICIEMBRE DE 2026
-    ========================================== -->
-
 </body>
-
 </html>
+
+<!-- ==========================================
+     FIN DEL ARCHIVO HTML
+     DILARY & OSCAR
+     ========================================== -->

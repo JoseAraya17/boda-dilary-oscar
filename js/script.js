@@ -2,441 +2,496 @@
 /* ==========================================================
    DILARY & OSCAR
    INVITACIÓN DIGITAL DE BODA
-   20 DE DICIEMBRE DE 2026 | 3:00 P. M.
-   COSTA RICA
 
-   JAVASCRIPT COMPLETO Y CORREGIDO
+   Fecha: 20 de diciembre de 2026
+   Hora: 3:00 p. m.
+   Zona horaria: Costa Rica (UTC-6)
+
+   JAVASCRIPT COMPLETO
    ========================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    /* ======================================================
-       1. CUENTA REGRESIVA
-       ====================================================== */
-
-    // Fecha y hora de la boda en Costa Rica (UTC-6).
-
-    const fechaBoda = new Date(
-        "2026-12-20T15:00:00-06:00"
-    ).getTime();
-
-    const dias = document.getElementById("dias");
-    const horas = document.getElementById("horas");
-    const minutos = document.getElementById("minutos");
-    const segundos = document.getElementById("segundos");
-    const mensajeCuenta = document.getElementById("mensajeCuenta");
-
-    const formatoNumero = (numero) => {
-        return String(numero).padStart(2, "0");
-    };
-
-    function actualizarContador() {
-
-        const diferencia = fechaBoda - Date.now();
-
-        // Cuando llega el día y la hora de la boda.
-
-        if (diferencia <= 0) {
-
-            if (dias) dias.textContent = "00";
-            if (horas) horas.textContent = "00";
-            if (minutos) minutos.textContent = "00";
-            if (segundos) segundos.textContent = "00";
-
-            if (mensajeCuenta) {
-                mensajeCuenta.textContent =
-                    "¡Llegó nuestro gran día! ❤️";
-            }
-
-            return false;
-        }
-
-        // Cálculo de días, horas, minutos y segundos.
-
-        const diasRestantes = Math.floor(
-            diferencia / (1000 * 60 * 60 * 24)
-        );
-
-        const horasRestantes = Math.floor(
-            (diferencia / (1000 * 60 * 60)) % 24
-        );
-
-        const minutosRestantes = Math.floor(
-            (diferencia / (1000 * 60)) % 60
-        );
-
-        const segundosRestantes = Math.floor(
-            (diferencia / 1000) % 60
-        );
-
-        // Actualizar los números de la página.
-
-        if (dias) {
-            dias.textContent = formatoNumero(diasRestantes);
-        }
-
-        if (horas) {
-            horas.textContent = formatoNumero(horasRestantes);
-        }
-
-        if (minutos) {
-            minutos.textContent = formatoNumero(minutosRestantes);
-        }
-
-        if (segundos) {
-            segundos.textContent = formatoNumero(segundosRestantes);
-        }
-
-        return true;
-    }
-
-    // Mostrar el contador inmediatamente.
-
-    const contadorActivo = actualizarContador();
-
-    // Actualizar cada segundo mientras la fecha sea futura.
-
-    if (contadorActivo) {
-
-        const intervaloContador = setInterval(() => {
-
-            const sigueContando = actualizarContador();
-
-            if (!sigueContando) {
-                clearInterval(intervaloContador);
-            }
-
-        }, 1000);
-
-    }
-
-
-    /* ======================================================
-       2. MÚSICA DE FONDO
-       ====================================================== */
-
-    const musica = document.getElementById("musicaBoda");
-    const botonMusica = document.getElementById("botonMusica");
-    const abrirInvitacion = document.getElementById("abrirInvitacion");
-
-    /*
-       Actualiza el botón flotante según
-       el estado real de reproducción.
-    */
-
-    function actualizarBotonMusica() {
-
-        if (!botonMusica) return;
-
-        const reproduciendo =
-            musica !== null &&
-            !musica.paused &&
-            !musica.ended;
-
-        // Símbolo visual.
-
-        botonMusica.textContent = reproduciendo ? "Ⅱ" : "♫";
-
-        // Texto accesible.
-
-        const descripcion = reproduciendo
-            ? "Pausar música"
-            : "Reproducir música";
-
-        botonMusica.setAttribute(
-            "aria-label",
-            descripcion
-        );
-
-        botonMusica.setAttribute(
-            "aria-pressed",
-            String(reproduciendo)
-        );
-
-        botonMusica.title = descripcion;
-
-        // Cambiar apariencia del botón.
-
-        botonMusica.classList.toggle(
-            "reproduciendo",
-            reproduciendo
-        );
-
-        botonMusica.classList.toggle(
-            "activa",
-            reproduciendo
-        );
-
-    }
-
-
-    /* ======================================================
-       3. REPRODUCIR MÚSICA
-       ====================================================== */
-
-    async function reproducirMusica() {
-
-        if (!musica) return;
-
-        // Evitar solicitudes duplicadas.
-
-        if (!musica.paused) {
-            actualizarBotonMusica();
-            return;
-        }
-
-        try {
-
-            await musica.play();
-
-        } catch (error) {
-
-            console.warn(
-                "No se pudo iniciar la música:",
-                error
-            );
-
-        }
-
-        actualizarBotonMusica();
-
-    }
-
-
-    /* ======================================================
-       4. CONFIGURACIÓN DEL AUDIO
-       ====================================================== */
-
-    if (musica) {
-
-        // Volumen inicial del 45 %.
-
-        musica.volume = 0.45;
-
-        // Repetir la canción automáticamente.
-
-        musica.loop = true;
-
-        // No reproducir antes de la interacción.
-
-        musica.autoplay = false;
-
-        // Sincronizar botón y reproducción.
-
-        musica.addEventListener(
-            "play",
-            actualizarBotonMusica
-        );
-
-        musica.addEventListener(
-            "playing",
-            actualizarBotonMusica
-        );
-
-        musica.addEventListener(
-            "pause",
-            actualizarBotonMusica
-        );
-
-        musica.addEventListener(
-            "ended",
-            actualizarBotonMusica
-        );
-
-        // Si el audio no puede cargarse.
-
-        musica.addEventListener("error", () => {
-
-            console.error(
-                "No se pudo cargar la canción. " +
-                "Revisá la ruta y el nombre del MP3."
-            );
-
-            actualizarBotonMusica();
-
-        });
-
-    }
-
-
-    /* ======================================================
-       5. BOTÓN FLOTANTE DE MÚSICA
-       ====================================================== */
-
-    if (musica && botonMusica) {
-
-        botonMusica.addEventListener("click", () => {
-
-            if (musica.paused) {
-
-                reproducirMusica();
-
-            } else {
-
-                musica.pause();
-                actualizarBotonMusica();
-
-            }
-
-        });
-
-    }
-
-
-    /* ======================================================
-       6. INICIAR MÚSICA AL ABRIR LA INVITACIÓN
-       ====================================================== */
-
-    /*
-       Los navegadores generalmente requieren
-       una interacción para permitir el audio.
-
-       Al presionar "Descubre nuestra historia",
-       intentamos iniciar la canción.
-    */
-
-    if (abrirInvitacion && musica) {
-
-        abrirInvitacion.addEventListener("click", () => {
-
-            if (musica.paused) {
-                reproducirMusica();
-            }
-
-        });
-
-    }
-
-
-    /* ======================================================
-       7. CONFIRMACIÓN DE ASISTENCIA
-       ====================================================== */
-
-    const botonConfirmacion =
-        document.getElementById("btnConfirmacion");
-
-    const enlaceFormulario =
-        "https://docs.google.com/forms/d/e/1FAIpQLSdUgfq4JATa0wRPRPJadDxbQmKfGdnDg2V_ocZ9LSWfss8zvQ/viewform";
-
-    if (botonConfirmacion) {
-
-        // Enlace oficial de confirmación.
-
-        botonConfirmacion.setAttribute(
-            "href",
-            enlaceFormulario
-        );
-
-        // Abrir en una pestaña nueva.
-
-        botonConfirmacion.setAttribute(
-            "target",
-            "_blank"
-        );
-
-        // Protección para enlaces externos.
-
-        botonConfirmacion.setAttribute(
-            "rel",
-            "noopener noreferrer"
-        );
-
-        // Habilitar el enlace.
-
-        botonConfirmacion.removeAttribute(
-            "aria-disabled"
-        );
-
-        botonConfirmacion.removeAttribute(
-            "disabled"
-        );
-
-    }
-
-
-    /* ======================================================
-       8. DESPLAZAMIENTO SUAVE
-       ====================================================== */
-
-    const enlacesInternos = document.querySelectorAll(
-        'a[href^="#"]'
-    );
-
-    enlacesInternos.forEach((enlace) => {
-
-        enlace.addEventListener("click", (evento) => {
-
-            // No activar enlaces deshabilitados.
-
-            if (
-                enlace.getAttribute("aria-disabled") === "true"
-            ) {
-                evento.preventDefault();
-                return;
-            }
-
-            const destinoId = enlace.getAttribute("href");
-
-            if (!destinoId || destinoId === "#") {
-                return;
-            }
-
-            const destino = document.getElementById(
-                destinoId.substring(1)
-            );
-
-            if (!destino) {
-                return;
-            }
-
-            evento.preventDefault();
-
-            // Respetar preferencias de accesibilidad.
-
-            const reducirMovimiento = window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches;
-
-            destino.scrollIntoView({
-                behavior: reducirMovimiento ? "auto" : "smooth",
-                block: "start"
-            });
-
-            // Actualizar la dirección sin recargar.
-
-            if (window.history.replaceState) {
-
-                window.history.replaceState(
-                    null,
-                    "",
-                    destinoId
-                );
-
-            }
-
-        });
-
-    });
-
-
-    /* ======================================================
-       9. ESTADO INICIAL
-       ====================================================== */
-
-    // Configurar la apariencia inicial del botón.
-
-    actualizarBotonMusica();
-
-    // Mensaje para comprobar que el script cargó.
-
-    console.info(
-        "Invitación de Dilary & Oscar cargada correctamente."
-    );
-
-});
+"use strict";
 
 
 /* ==========================================================
-   FIN DEL ARCHIVO JAVASCRIPT
+   1. CONFIGURACIÓN GENERAL
+   ========================================================== */
+
+const CONFIG = {
+    fechaBoda: "2026-12-20T15:00:00-06:00",
+
+    fechaLimiteConfirmacion: "2026-11-25",
+
+    urlMapa:
+        "https://maps.app.goo.gl/SVUCgr75beKC84bd7",
+
+    urlConfirmacion:
+        "https://docs.google.com/forms/d/e/1FAIpQLSdUgfq4JATa0wRPRPJadDxbQmKfGdnDg2V_ocZ9LSWfss8zvQ/viewform",
+
+    volumenMusica: 0.45
+};
+
+
+/* ==========================================================
+   2. ELEMENTOS DEL DOCUMENTO
+   ========================================================== */
+
+const elementos = {
+    dias: document.getElementById("dias"),
+
+    horas: document.getElementById("horas"),
+
+    minutos: document.getElementById("minutos"),
+
+    segundos: document.getElementById("segundos"),
+
+    mensajeCuenta:
+        document.getElementById("mensajeCuenta"),
+
+    musica:
+        document.getElementById("musicaBoda"),
+
+    botonMusica:
+        document.getElementById("botonMusica"),
+
+    botonAbrir:
+        document.getElementById("abrirInvitacion"),
+
+    botonMapa:
+        document.getElementById("btnMapa"),
+
+    botonConfirmacion:
+        document.getElementById("btnConfirmacion")
+};
+
+
+/* ==========================================================
+   3. CUENTA REGRESIVA
+   ========================================================== */
+
+const fechaBoda = new Date(CONFIG.fechaBoda);
+
+let intervaloCuenta = null;
+
+
+/* Agregar cero a números menores de 10 */
+
+function agregarCero(numero) {
+    return String(numero).padStart(2, "0");
+}
+
+
+/* Mostrar valores en el contador */
+
+function mostrarCuenta(dias, horas, minutos, segundos) {
+
+    if (elementos.dias) {
+        elementos.dias.textContent = agregarCero(dias);
+    }
+
+    if (elementos.horas) {
+        elementos.horas.textContent = agregarCero(horas);
+    }
+
+    if (elementos.minutos) {
+        elementos.minutos.textContent = agregarCero(minutos);
+    }
+
+    if (elementos.segundos) {
+        elementos.segundos.textContent = agregarCero(segundos);
+    }
+
+}
+
+
+/* Actualizar cuenta regresiva */
+
+function actualizarCuentaRegresiva() {
+
+    const ahora = new Date();
+
+    const diferencia = fechaBoda.getTime() - ahora.getTime();
+
+    /* La boda ya comenzó */
+
+    if (diferencia <= 0) {
+
+        mostrarCuenta(0, 0, 0, 0);
+
+        if (elementos.mensajeCuenta) {
+            elementos.mensajeCuenta.textContent =
+                "¡Llegó nuestro gran día! Gracias por acompañarnos. ❤️";
+        }
+
+        if (intervaloCuenta !== null) {
+            clearInterval(intervaloCuenta);
+            intervaloCuenta = null;
+        }
+
+        return;
+    }
+
+    /* Calcular tiempo restante */
+
+    const segundosTotales = Math.floor(diferencia / 1000);
+
+    const dias = Math.floor(
+        segundosTotales / (60 * 60 * 24)
+    );
+
+    const horas = Math.floor(
+        (segundosTotales % (60 * 60 * 24)) / (60 * 60)
+    );
+
+    const minutos = Math.floor(
+        (segundosTotales % (60 * 60)) / 60
+    );
+
+    const segundos = segundosTotales % 60;
+
+    mostrarCuenta(dias, horas, minutos, segundos);
+
+}
+
+
+/* Iniciar contador */
+
+function iniciarCuentaRegresiva() {
+
+    actualizarCuentaRegresiva();
+
+    if (intervaloCuenta === null &&
+        Date.now() < fechaBoda.getTime()) {
+
+        intervaloCuenta = setInterval(
+            actualizarCuentaRegresiva,
+            1000
+        );
+
+    }
+
+}
+
+
+/* ==========================================================
+   4. CONFIGURACIÓN DE LA MÚSICA
+   ========================================================== */
+
+let musicaReproduciendose = false;
+
+
+/* Actualizar apariencia del botón */
+
+function actualizarBotonMusica() {
+
+    if (!elementos.botonMusica) {
+        return;
+    }
+
+    elementos.botonMusica.classList.toggle(
+        "reproduciendo",
+        musicaReproduciendose
+    );
+
+    elementos.botonMusica.setAttribute(
+        "aria-pressed",
+        String(musicaReproduciendose)
+    );
+
+    elementos.botonMusica.setAttribute(
+        "aria-label",
+        musicaReproduciendose
+            ? "Pausar música"
+            : "Reproducir música"
+    );
+
+    elementos.botonMusica.title =
+        musicaReproduciendose
+            ? "Pausar música"
+            : "Reproducir música";
+
+    elementos.botonMusica.textContent =
+        musicaReproduciendose ? "♫" : "♪";
+
+}
+
+
+/* Reproducir música */
+
+async function reproducirMusica() {
+
+    if (!elementos.musica) {
+        return;
+    }
+
+    try {
+
+        await elementos.musica.play();
+
+    } catch (error) {
+
+        /* Algunos navegadores bloquean la reproducción
+           hasta que el usuario interactúa con la página. */
+
+        console.info(
+            "La música requiere interacción del usuario.",
+            error
+        );
+
+    }
+
+}
+
+
+/* Pausar música */
+
+function pausarMusica() {
+
+    if (!elementos.musica) {
+        return;
+    }
+
+    elementos.musica.pause();
+
+}
+
+
+/* Alternar reproducción */
+
+function alternarMusica() {
+
+    if (!elementos.musica) {
+        return;
+    }
+
+    if (elementos.musica.paused) {
+
+        reproducirMusica();
+
+    } else {
+
+        pausarMusica();
+
+    }
+
+}
+
+
+/* Inicializar controles */
+
+function iniciarMusica() {
+
+    if (!elementos.musica) {
+        return;
+    }
+
+    elementos.musica.volume =
+        CONFIG.volumenMusica;
+
+    elementos.musica.loop = true;
+
+    /* Mantener el botón sincronizado
+       con el estado real del audio. */
+
+    elementos.musica.addEventListener(
+        "play",
+        function () {
+
+            musicaReproduciendose = true;
+            actualizarBotonMusica();
+
+        }
+    );
+
+    elementos.musica.addEventListener(
+        "pause",
+        function () {
+
+            musicaReproduciendose = false;
+            actualizarBotonMusica();
+
+        }
+    );
+
+    elementos.musica.addEventListener(
+        "ended",
+        function () {
+
+            musicaReproduciendose = false;
+            actualizarBotonMusica();
+
+        }
+    );
+
+    /* Botón flotante */
+
+    if (elementos.botonMusica) {
+
+        elementos.botonMusica.addEventListener(
+            "click",
+            alternarMusica
+        );
+
+    }
+
+    actualizarBotonMusica();
+
+}
+
+
+/* ==========================================================
+   5. ABRIR LA INVITACIÓN
+   ========================================================== */
+
+function iniciarBotonAbrir() {
+
+    if (!elementos.botonAbrir) {
+        return;
+    }
+
+    elementos.botonAbrir.addEventListener(
+        "click",
+        function (evento) {
+
+            const destino =
+                document.getElementById("bienvenida");
+
+            if (destino) {
+
+                evento.preventDefault();
+
+                destino.scrollIntoView({
+                    behavior: window.matchMedia(
+                        "(prefers-reduced-motion: reduce)"
+                    ).matches ? "auto" : "smooth",
+
+                    block: "start"
+                });
+
+            }
+
+            /* Intentar iniciar la música
+               cuando el invitado abre la invitación. */
+
+            if (
+                elementos.musica &&
+                elementos.musica.paused
+            ) {
+
+                reproducirMusica();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   6. BOTÓN DE UBICACIÓN
+   ========================================================== */
+
+function configurarUbicacion() {
+
+    if (!elementos.botonMapa) {
+        return;
+    }
+
+    elementos.botonMapa.href = CONFIG.urlMapa;
+
+    elementos.botonMapa.target = "_blank";
+
+    elementos.botonMapa.rel =
+        "noopener noreferrer";
+
+}
+
+
+/* ==========================================================
+   7. CONFIRMACIÓN DE ASISTENCIA
+   ========================================================== */
+
+function configurarConfirmacion() {
+
+    if (!elementos.botonConfirmacion) {
+        return;
+    }
+
+    elementos.botonConfirmacion.href =
+        CONFIG.urlConfirmacion;
+
+    elementos.botonConfirmacion.target =
+        "_blank";
+
+    elementos.botonConfirmacion.rel =
+        "noopener noreferrer";
+
+    /* La fecha límite se informa en el HTML.
+       El enlace permanece disponible para que
+       los novios puedan gestionar respuestas
+       según la configuración de Google Forms. */
+
+}
+
+
+/* ==========================================================
+   8. SEGURIDAD DE ENLACES EXTERNOS
+   ========================================================== */
+
+function configurarEnlacesExternos() {
+
+    const enlaces = document.querySelectorAll(
+        'a[target="_blank"]'
+    );
+
+    enlaces.forEach(function (enlace) {
+
+        enlace.rel = "noopener noreferrer";
+
+    });
+
+}
+
+
+/* ==========================================================
+   9. INICIALIZAR LA INVITACIÓN
+   ========================================================== */
+
+function iniciarInvitacion() {
+
+    iniciarCuentaRegresiva();
+
+    iniciarMusica();
+
+    iniciarBotonAbrir();
+
+    configurarUbicacion();
+
+    configurarConfirmacion();
+
+    configurarEnlacesExternos();
+
+}
+
+
+/* Ejecutar cuando el HTML esté cargado */
+
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        iniciarInvitacion
+    );
+
+} else {
+
+    iniciarInvitacion();
+
+}
+
+
+/* ==========================================================
+   FIN DEL JAVASCRIPT
    DILARY & OSCAR
    ========================================================== */
